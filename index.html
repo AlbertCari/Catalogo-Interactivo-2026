@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1A73E8" />
+  <title>Catálogo 2026 – Portada</title>
+  <meta name="description" content="Portada del catálogo 2026.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="hero" role="main">
+    <picture class="hero__bg" aria-hidden="true">
+      <source media="(orientation: portrait)" srcset="assets/bg-portrait.png" type="image/png">
+      <img src="assets/bg-landscape.png" alt="Fondo" width="1920" height="1080" decoding="async">
+    </picture>
+
+    <div class="shell">
+      <section class="pane pane--brand" aria-label="Identidad">
+        <a href="index.html" class="brand__home" aria-label="Ir a portada">
+          <img class="brand__logo" src="assets/logo-320.png" alt="Escuela Activa · Logo" width="160" height="160">
+        </a>
+      </section>
+
+      <section class="pane pane--main" aria-label="Acceso a secciones">
+        <h1 class="title">Catálogo 2026</h1>
+        <nav class="menu" aria-label="Secciones del catálogo">
+          <h2 class="visually-hidden">Secciones</h2>
+          <a class="menu__btn" href="presentacion.html"><span>Presentación</span></a>
+          <a class="menu__btn" href="inicial.html"><span>Inicial</span></a>
+          <a class="menu__btn" href="plan-lector.html"><span>Plan Lector</span></a>
+          <a class="menu__btn" href="matematica.html"><span>Matemática</span></a>
+          <a class="menu__btn" href="eactiva.html"><span>Eactiva Plus</span></a>
+          <a class="menu__btn" href="comunicacion.html"><span>Comunicación</span></a>
+          <a class="menu__btn" href="plataforma.html"><span>Plataforma</span></a>
+          <a class="menu__btn" href="ingles.html"><span>Inglés</span></a>
+        </nav>
+      </section>
+
+      <footer class="site-footer" role="contentinfo">
+        <p class="site-link"><a href="https://www.eactiva.pe" target="_blank" rel="noopener">www.eactiva.pe</a></p>
+      </footer>
+    </div>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__box" role="document">
+      <header class="modal__head">
+        <h2 id="modal-title">Sección</h2>
+        <button class="modal__close" aria-label="Cerrar">✕</button>
+      </header>
+      <div id="modal-body" class="modal__body">
+        <p>Contenido de prueba. Aquí cargaremos la sección seleccionada.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

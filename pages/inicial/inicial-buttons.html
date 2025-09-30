@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inicial | Catálogo 2026</title>
+  <link rel="icon" href="../../favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="inicial-buttons.css">
+  <style>
+    :root{
+      --overlay-bg: rgba(17,24,39,.55);
+      --pill-bg: #ffffff;
+      --pill-text:#111827;
+      --accent:#0ea5e9;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;font-family:Lato,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#111827;color:#fff}
+    .wrap{min-height:100svh;display:grid;place-items:center;padding:clamp(12px,2vw,24px)}
+    .container{width:min(1200px,95vw)}
+    h1{margin:0 0 clamp(14px,2vw,22px);font-size:clamp(28px,6vw,46px);font-weight:900;text-align:center}
+    .grid{
+      display:grid;gap:clamp(12px,2vw,20px);
+      grid-template-columns: 1fr; /* móvil por defecto */
+    }
+    /* Tarjeta personaje */
+    .card{
+      position:relative;isolation:isolate;overflow:hidden;border-radius:18px;
+      background:#0b1220;box-shadow:0 8px 28px rgba(0,0,0,.35);
+      display:grid;place-items:center;padding:clamp(10px,2vw,18px);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(0,0,0,.45)}
+    .character{width:min(520px,85%);height:auto;display:block;pointer-events:auto;z-index:1}
+    .brand{position:absolute;left:50%;transform:translateX(-50%);bottom:clamp(6px,1.4vw,10px);width:min(440px,70%);z-index:2}
+
+    /* Cintas de texto laterales */
+    .ribbon{
+      position:absolute;z-index:2;top:clamp(10px,1.6vw,14px);
+      font-size:clamp(16px,3.4vw,26px);font-weight:900;white-space:nowrap;
+      padding:.25em .6em;border-radius:999px;background:rgba(0,0,0,.35);backdrop-filter:blur(2px)
+    }
+    .ribbon.left{left:clamp(6px,1vw,10px)}
+    .ribbon.right{right:clamp(6px,1vw,10px)}
+
+    /* Overlay de edades (CLICABLE) */
+    .overlay{
+      position:absolute;inset:0;display:grid;place-items:center;
+      background:linear-gradient(180deg,transparent 35%,var(--overlay-bg));opacity:0;
+      transition:opacity .18s ease; z-index:3;
+    }
+    .card:hover .overlay, .card:focus-within .overlay{opacity:1}
+
+    .age-grid{
+      display:grid;gap:10px;grid-auto-flow:column; /* 4 columnas, 1 fila */
+      background:rgba(255,255,255,.10);padding:10px;border-radius:14px;
+      backdrop-filter: blur(4px);
+    }
+    .age-btn{
+      pointer-events:auto; /* asegura click */
+      display:inline-flex;align-items:center;justify-content:center;
+      min-width:84px;padding:.55em .9em;border-radius:12px;text-decoration:none;
+      background:var(--pill-bg);color:var(--pill-text);font-weight:900;
+      box-shadow:0 2px 8px rgba(0,0,0,.25);
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+    }
+    .age-btn:hover{transform:translateY(-1px) scale(1.03);box-shadow:0 6px 14px rgba(0,0,0,.28);background:#e6f6ff;color:#0a3a5a;outline:2px solid var(--accent)}
+
+    /* Layout responsive */
+    @media (min-width:600px){ .grid{ grid-template-columns: repeat(2,1fr);} }
+    @media (min-width:1024px){ .grid{ grid-template-columns: repeat(2,1fr);} }
+    @media (min-width:1440px){ .grid{ grid-template-columns: repeat(2,1fr);} }
+    .topbar{display:flex;justify-content:center;margin-bottom:8px}
+    .back, .home{
+      color:#fff;text-decoration:none;margin:0 .5rem;padding:.4rem .75rem;border-radius:10px;background:#1f2937;transition:background .15s ease
+    }
+    .back:hover,.home:hover{background:#374151}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="container">
+      <div class="topbar">
+        <a class="back" href="../../index.html" title="Portada">⌂ Portada</a>
+      </div>
+      <h1>Inicial</h1>
+
+      <section class="grid">
+        <!-- Niño / Jugando Creamos -->
+        <article class="card" aria-label="Colección Jugando Creamos 2-5 años">
+          <img class="character" src="assets/boy-logo.png" alt="Niño con libro Jugando Creamos">
+          <img class="brand" src="assets/lg-jugando_creamos.png" alt="Logo Jugando Creamos">
+          <div class="ribbon left">Colección</div>
+          <div class="ribbon right">2–5 años</div>
+
+          <!-- OVERLAY CLICABLE -->
+          <div class="overlay" aria-hidden="false">
+            <div class="age-grid">
+              <a class="age-btn" href="./2-anos/jugando-2.html" data-age="2">2 años</a>
+              <a class="age-btn" href="./2-anos/jugando-2.html" data-age="3">3 años</a>
+              <a class="age-btn" href="./2-anos/jugando-2.html" data-age="4">4 años</a>
+              <a class="age-btn" href="./2-anos/jugando-2.html" data-age="5">5 años</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Niña / Lalito -->
+        <article class="card" aria-label="Lalito Inicial 5 años">
+          <img class="character" src="assets/girl-logo.png" alt="Niña con libro Lalito">
+          <img class="brand" src="assets/lg-lalito.png" alt="Logo Lalito">
+          <div class="ribbon left">Lalito Inicial</div>
+          <div class="ribbon right">5 años</div>
+
+          <!-- OVERLAY CLICABLE -->
+          <div class="overlay" aria-hidden="false">
+            <div class="age-grid">
+              <a class="age-btn" href="./2-anos/jugando-2.html" data-age="2">2 años</a>
+              <a class="age-btn" href="./2-anos/jugando-2.html" data-age="3">3 años</a>
+              <a class="age-btn" href="./2-anos/jugando-2.html" data-age="4">4 años</a>
+              <a class="age-btn" href="./2-anos/jugando-2.html" data-age="5">5 años</a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Accesibilidad: Enter/espacio sobre la tarjeta enfoca el primer botón de edad
+    document.querySelectorAll('.card').forEach(card=>{
+      card.tabIndex=0;
+      card.addEventListener('keydown',e=>{
+        if(e.key==='Enter' || e.key===' '){
+          e.preventDefault();
+          const first = card.querySelector('.age-btn'); if(first) first.focus();
+        }
+      })
+    });
+  </script>
+</body>
+</html>

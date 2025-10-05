@@ -1,0 +1,107 @@
+/* =========================================================
+   Catálogo – detail.css
+   Scope: SOLO páginas con <body class="detalle-page">
+   Estructura: 1 columna (móvil/tablet) → 2 columnas (laptop/desktop)
+   No toca otras páginas del catálogo.
+   ========================================================= */
+
+/* Grid principal */
+.detalle-page .detail-grid{
+  display: grid;
+  grid-template-columns: 1fr;                 /* móvil/tablet: 1 col */
+  gap: clamp(16px, 3vw, 28px);
+  align-items: start;
+}
+
+/* Columnas (evita overflow con contenido largo) */
+.detalle-page .detail-col{ min-width: 0; }
+
+/* Bloque de media (portada/video) */
+.detalle-page .media-card{
+  margin: 0;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+.detalle-page .media-card img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Tira de logotipos opcional */
+.detalle-page .logo-strip{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 12px;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 12px;
+}
+.detalle-page .logo-strip img{
+  height: 36px; width: auto;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.12));
+}
+
+/* Texto enriquecido + espaciado vertical cómodo */
+.detalle-page .rich-text{
+  background: rgba(255,255,255,0.85);
+  border-radius: 16px;
+  padding: clamp(12px, 2.2vw, 18px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+.detalle-page .stack > * + *{ margin-top: clamp(10px, 1.6vw, 14px); }
+
+/* Metadatos/chips opcionales */
+.detalle-page .detail-meta{
+  display: flex; flex-wrap: wrap; gap: 8px 10px;
+  margin-bottom: 12px;
+}
+.detalle-page .chip{
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #0066cc;
+  color: #fff; font-weight: 700; font-size: 13px;
+}
+
+/* Listas tipo “check” (si las usas) */
+.detalle-page .checklist{ list-style: none; padding: 0; margin: 0; }
+.detalle-page .checklist li{
+  position: relative; padding-left: 24px; margin: 6px 0;
+}
+.detalle-page .checklist li::before{
+  content: "✔️"; position: absolute; left: 0; top: 0; line-height: 1.2;
+}
+
+/* Video dentro de la columna de media: ocupa el ancho del contenedor */
+.detalle-page .detail-media .video-frame{
+  margin-top: 12px;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* CTA inferior dentro de la columna derecha */
+.detalle-page .detail-content .cta-wrap{ margin-top: 16px; }
+
+/* 2 columnas en laptop/desktop */
+@media (min-width: 992px){
+  .detalle-page .detail-grid{
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); /* media | texto */
+    align-items: start;
+  }
+  /* Opcional: media sticky para acompañar la lectura */
+  .detalle-page .detail-media{
+    position: sticky;
+    top: clamp(70px, 8vw, 120px);
+  }
+}
+
+/* Accesibilidad: foco visible en enlaces del detalle */
+.detalle-page a:focus-visible{
+  outline: 3px solid rgba(136, 0, 102, .6);
+  outline-offset: 3px;
+}
